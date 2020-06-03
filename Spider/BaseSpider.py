@@ -9,7 +9,8 @@ import chardet
 import logging
 from threading import Lock
 requests.packages.urllib3.disable_warnings()
-logging.basicConfig(level=logging.INFO, filename='./Logs/worklog.txt', filemode='a', format="[%(levelname)s]%(asctime)s %(message)s")
+logging.basicConfig(level=logging.INFO, filemode='a', format="[%(levelname)s]%(asctime)s %(message)s")
+# filename='./Logs/worklog.txt'
 
 '''爬取基类'''
 class Spider(metaclass=abc.ABCMeta):
@@ -37,9 +38,13 @@ class Spider(metaclass=abc.ABCMeta):
     # 获取 title service
     def get_titleAndservice(self, link, port=''):
         if port == 443:
-            link = 'https://' + link
+            link = 'https://{}'.format(link)
+
         if 'http' not in link:
-            link = 'http://' + link
+            if port != '':
+                link = 'http://{}:{}'.format(link, str(port))
+            else:
+                link = 'http://{}'.format(link)
         try:
             resp = requests.get(link, timeout=3, verify=False)
             detectencode = chardet.detect(resp.content)  # 利用chardet模块检测编码

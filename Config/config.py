@@ -2,21 +2,24 @@
 # 这里的写法参考Broken_5师傅的WebAliveScan
 
 fofa_api = "0ef4f5a7b2888157f9809c76ef5a3ca3"
-fofa_page = 2 # 这里你自定义要爬取的页数 当没有爬到的时候自动会结束线程
+fofa_page = 10 # 这里你自定义要爬取的页数 当没有爬到的时候自动会结束线程
 
 
 shodan_api = "upgSXXMkFU0PvDGWMcG5YyLq9hI3Fc27"
-shodan_page = 2 # 这里你自定义要爬取的页数 当没有爬到的时候自动会结束线程
+shodan_page = 10 # 这里你自定义要爬取的页数 当没有爬到的时候自动会结束线程
 
 
 censys_api = ""
 censys_page = 2
 
+ip_scan_mode = 'small'
+url_scan_mode = 'default'
+
 # 默认端口
 default_ports = {80, 443}  # 默认使用
 
 # 小型端口
-small_ports = {80, 443, 8000, 8080, 8443, 7001, 8009}
+small_ports = {80, 443, 8000, 8080, 8443, 7001, 8009, 9999, 8090, 8001, 8888}
 
 # 中型端口
 medium_ports = {80, 81, 443, 591, 2082, 2087, 2095, 2096, 3000, 8000, 8001, 8008, 8080, 8083, 8443, 8834, 8888}
